@@ -14,7 +14,7 @@ public class DownloaderThread extends Thread {
             String folder = String.format("D:/parser/%d.png", Main.list.size() + 1);
             try {
                 Main.downloadPicture(Main.takeLink(temp),folder);
-                System.out.printf("|%3d| Картинка успешно скачана!%n",Main.counter);
+                System.out.printf("|%1d| Картинка успешно скачана!%n",Main.counter);
                 Main.counter++;
             } catch (IOException e) {
                 System.out.println("Ненашёл ссылку");
