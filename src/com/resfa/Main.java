@@ -37,7 +37,7 @@ public class Main {
         String actualLink = "https://prnt.sc/" + input;
         list = (CopyOnWriteArrayList<String>) fillList(actualLink, list, count);
         long time = System.currentTimeMillis();
-
+        System.out.println("0");
        /* for (int i = 0; i < list.size(); i++) {
             String folder = String.format("D:/parser/%d.png", i);
             try {
