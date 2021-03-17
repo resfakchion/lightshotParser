@@ -23,12 +23,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Main {
     public static  CopyOnWriteArrayList<String> list;
     public static int counter = 0;
+    public static String folder;
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите первые три символа ссылки");
         String input = reader.readLine().toLowerCase(Locale.ROOT);
         System.out.println("Введите количество скриншотов");
         int count =  Integer.parseInt(reader.readLine());
+        System.out.println("Введите директорию для скриншотов");
+        folder = reader.readLine().replace("\\", "/");
 
         list = new CopyOnWriteArrayList<String>();
         String actualLink = "https://prnt.sc/" + input;

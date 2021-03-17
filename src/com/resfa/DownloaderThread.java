@@ -11,7 +11,7 @@ public class DownloaderThread extends Thread {
         while (!Main.list.isEmpty()) {
             String temp = Main.list.get(0);
             Main.list.remove(0);
-            String folder = String.format("D:/parser/%d.png", Main.list.size() + 1);
+            String folder = String.format(Main.folder + "/%d.png", Main.list.size() + 1);
             try {
                 Main.downloadPicture(Main.takeLink(temp),folder);
                 System.out.printf("|%1d| Картинка успешно скачана!%n",Main.counter);
