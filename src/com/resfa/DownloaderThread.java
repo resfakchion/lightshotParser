@@ -16,8 +16,8 @@ public class DownloaderThread extends Thread {
                 Main.downloadPicture(Main.takeLink(temp),folder);
                 System.out.printf("|%1d| Картинка успешно скачана!%n",Main.counter);
                 Main.counter++;
-            } catch (IOException e) {
-                System.out.println("Ненашёл ссылку");
+            } catch (Exception e) {
+                System.out.println("|*| Ненашёл ссылку");
             }
         }
     }

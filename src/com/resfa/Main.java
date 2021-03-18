@@ -22,33 +22,22 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Main {
     public static  CopyOnWriteArrayList<String> list;
-    public static int counter = 0;
+    public static int counter = 1;
     public static String folder;
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите первые три символа ссылки");
+        System.out.println("Введите первые 4 символа ссылки");
         String input = reader.readLine().toLowerCase(Locale.ROOT);
         System.out.println("Введите количество скриншотов");
         int count =  Integer.parseInt(reader.readLine());
-        System.out.println("Введите директорию для скриншотов");
+        folder = "D:/parser";
+       /* System.out.println("Введите директорию для скриншотов");
         folder = reader.readLine().replace("\\", "/");
+        */
 
         list = new CopyOnWriteArrayList<String>();
         String actualLink = "https://prnt.sc/" + input;
         list = (CopyOnWriteArrayList<String>) fillList(actualLink, list, count);
-        long time = System.currentTimeMillis();
-       /* for (int i = 0; i < list.size(); i++) {
-            String folder = String.format("D:/parser/%d.png", i);
-            try {
-                downloadPicture(takeLink(list.get(i)), folder);
-                System.out.println("Картинка " + i + ".png успешно скачана!");
-            } catch (IOException e) {
-                System.out.println("Ненашёл ссылку");
-            }
-        }
-        System.out.println(System.currentTimeMillis() - time);
-
-        */
 
 
        DownloaderThread downloaderThread1 = new DownloaderThread();
@@ -57,14 +46,6 @@ public class Main {
         downloaderThread1.start();
         downloaderThread2.start();
         downloaderThread3.start();
-
-
-        while (true) {
-           if (!downloaderThread1.isAlive() && !downloaderThread2.isAlive() && !downloaderThread3.isAlive()) {
-               System.out.println(System.currentTimeMillis() - time);
-               break;
-           }
-        }
 
     }
     public static Document getPage(String url) throws IOException {
